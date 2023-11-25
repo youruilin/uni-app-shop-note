@@ -18,7 +18,7 @@
 
 **静态结构**
 
-新建业务组件：`src/pages/index/componets/CustomNavbar.vue`
+新建业务组件：`src/pages/index/components/CustomNavbar.vue`
 
 ```vue
 <script setup lang="ts">
