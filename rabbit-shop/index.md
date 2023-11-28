@@ -502,6 +502,7 @@ pnpm i -D lint-staged
 {
   "script": {
     // ... 省略 ...
+    "lint-staged": "lint-staged"
   },
   "lint-staged": {
     "*.{vue,ts,js}": ["eslint --fix"]
