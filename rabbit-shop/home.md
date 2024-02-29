@@ -1148,6 +1148,6 @@ const onRefresherrefresh = async () => {
 
 微信开发者工具提供了自动生成骨架屏代码的能力。
 
-使用时需要把自动生成的 `xxx.skeleton.vue` 和 `xxx.skeleton.wxss` 封装成 `vue` 组件。
+使用时需要把自动生成的 `xxx.skeleton.wxml` 和 `xxx.skeleton.wxss` 封装成 `vue` 组件。
 
 ![骨架屏](./assets/home_picture_8.png)
