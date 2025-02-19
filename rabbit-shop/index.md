@@ -269,6 +269,8 @@ export const useMemberStore = defineStore(
 ```ts
 // src/utils/http.ts
 
+import { useMemberStore } from '@/stores'
+
 // 请求基地址
 const baseURL = 'https://pcapi-xiaotuxian-front-devtest.itheima.net'
 
