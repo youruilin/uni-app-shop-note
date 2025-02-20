@@ -273,17 +273,20 @@ npx degit dcloudio/uni-preset-vue#vite-ts 项目名称
 
 没开发过 Vue3 + TS 项目的小伙伴注意，需要先安装 Vue3 和 TS 的插件，并完成以下配置 👇
 
-- 安装 [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) ：Vue3 语法提示插件
-- 安装 [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) ：Vue3 的 TS 插件
-- **工作区禁用** Vetur 插件(Vue2 插件和 Vue3 插件冲突)
-- **工作区禁用** @builtin typescript 插件（禁用后自动开启 Vue3 的 TS 托管模式）
+- 安装 [Vue - Official (之前是 Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) ：Vue3 + TS语法提示插件
+- 温馨提示：新版本 Vue - Official 已集成以下内容，删除线部分请自行忽略
+- ~~安装 [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) ：Vue3 的 TS 插件~~
+- ~~**工作区禁用** Vetur 插件(Vue2 插件和 Vue3 插件冲突)~~
+- ~~**工作区禁用** @builtin typescript 插件（禁用后自动开启 Vue3 的 TS 托管模式）~~
 
 [查看 Vue3 官方文档](https://cn.vuejs.org/guide/typescript/overview.html#ide-support)
 
 :::
 
 **需禁用的插件**
-
+::: danger 注意事项
+现只需禁用冲突的 `Vetur` 即可，而 `@builtin typescript` 无需禁用，避免 TS 类型校验失效
+:::
 ![工作区禁用](./assets/uniapp_vscode_setting.png)
 
 #### 安装 uni-app 插件
@@ -293,7 +296,7 @@ npx degit dcloudio/uni-preset-vue#vite-ts 项目名称
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-helper-vscode) ：uni-app 代码提示
   - [uniapp 小程序扩展](https://marketplace.visualstudio.com/items?itemName=evils.uniapp-vscode) ：鼠标悬停查文档
 - 👉 TS 类型校验
-  - 安装 **类型声明文件** `pnpm i -D miniprogram-api-typings @uni-helper/uni-app-types`
+  - 安装最新版本 **类型声明文件** `pnpm i -D miniprogram-api-typings@latest @uni-helper/uni-app-types@latest`
   - 配置 `tsconfig.json`
 - 👉 JSON 注释问题
   - 设置文件关联，把 `manifest.json` 和 `pages.json` 设置为 `jsonc`
@@ -320,9 +323,8 @@ npx degit dcloudio/uni-preset-vue#vite-ts 项目名称
   },
   // vue 编译器类型，校验标签类型
   "vueCompilerOptions": {
-    // 原配置 `experimentalRuntimeMode` 现调整为 `nativeTags`
-    "nativeTags": ["block", "component", "template", "slot"], // [!code ++]
-    "experimentalRuntimeMode": "runtime-uni-app" // [!code --]
+    // 原配置 experimentalRuntimeMode 已废弃，请升级 Vue - Official 插件至最新版本
+    "plugins": ["@uni-helper/uni-app-types/volar-plugin"] // [!code ++]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
@@ -347,10 +349,10 @@ npx degit dcloudio/uni-preset-vue#vite-ts 项目名称
 }
 ```
 
-::: danger 版本升级
+::: danger Vue - Official (之前是 Volar) 版本升级
 
 - 原依赖 `@types/wechat-miniprogram` 现调整为 [miniprogram-api-typings](https://github.com/wechat-miniprogram/api-typings)。
-- 原配置 `experimentalRuntimeMode` 现调整为 `nativeTags`。
+- 原配置 `experimentalRuntimeMode` 现调整为 `plugins`。
 
 :::
 
