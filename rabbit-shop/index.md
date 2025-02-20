@@ -5,7 +5,7 @@
 <table>
   <tr>
     <td>体验小程序端</td>
-    <td><a target="_blank" href="https://megasu.gitee.io/uniapp-shop-vue3-ts/">体验 H5 端</a></td>
+    <td><a target="_blank" href="https://megasu.atomgit.net/uniapp-shop-vue3-ts/">体验 H5 端</a></td>
     <td><a target="_blank" href="https://gitee.com/Megasu/uniapp-shop-vue3-ts/releases/download/v1.0.0/heima-shop.apk">体验 App 端(安卓)</a></td>
   </tr>
   <tr>
@@ -27,7 +27,7 @@
 
 ### ✏️ 在线笔记
 
-[https://megasu.gitee.io/uni-app-shop-note/](https://megasu.gitee.io/uni-app-shop-note/)
+[https://megasu.atomgit.net/uni-app-shop-note/](https://megasu.atomgit.net/uni-app-shop-note/)
 
 ### 📦 项目源码
 
@@ -93,7 +93,7 @@ pnpm i @dcloudio/uni-ui
 **安装类型声明文件**
 
 ```sh
-pnpm i -D @uni-helper/uni-ui-types
+pnpm i -D @uni-helper/uni-app-types@latest @uni-helper/uni-ui-types@latest
 ```
 
 **配置类型声明文件**
@@ -112,7 +112,8 @@ pnpm i -D @uni-helper/uni-ui-types
   },
   // vue 编译器类型，校验标签类型
   "vueCompilerOptions": {
-    "nativeTags": ["block", "component", "template", "slot"]
+    // 原配置 experimentalRuntimeMode 已废弃，请升级 Vue - Official 插件至最新版本
+    "plugins": ["@uni-helper/uni-app-types/volar-plugin"] // [!code ++]
   }
 }
 ```
